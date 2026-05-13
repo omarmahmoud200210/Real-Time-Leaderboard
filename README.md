@@ -1,0 +1,1 @@
+Speckit: $env:Path = "C:\Users\omar.mahmoud\.local\bin;$env:Path"; specify init 
