@@ -57,3 +57,6 @@ JWT_SECRET=your-secret-here
 ## API
 
 All routes are prefixed with `/api/v1`. Auth is required on all routes except `/players/register` and `/players/login`.
+
+## Project URL
+https://roadmap.sh/projects/realtime-leaderboard-system
