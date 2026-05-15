@@ -1,0 +1,29 @@
+# Node
+node_modules/
+dist/
+build/
+*.log
+*.local
+.env
+.env.*
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/*
+!.vscode/extensions.json
+.idea/
+*.suo
+*.sw?
+
+docs/
+specs/
+
+.claude/
+.specify/
+
+CLAUDE.md
+
+plan.md

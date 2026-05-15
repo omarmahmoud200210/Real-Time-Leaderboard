@@ -1,0 +1,42 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model Player {
+  id        Int      @id @default(autoincrement())
+  username  String   @unique
+  email     String   @unique
+  password  String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  scores Score[] @relation("PlayerScores")
+}
+
+model Game {
+  id        Int      @id @default(autoincrement())
+  name      String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  scores Score[] @relation("GameScores")
+}
+
+model Score {
+  id          Int      @id @default(autoincrement())
+  submittedAt DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  score       Decimal  @db.Decimal(10, 2)
+  gameId      Int
+  playerId    Int
+
+  game   Game   @relation("GameScores", fields: [gameId], references: [id])
+  player Player @relation("PlayerScores", fields: [playerId], references: [id])
+
+  @@index([playerId, gameId])
+  @@index([submittedAt])
+}
